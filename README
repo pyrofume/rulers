@@ -31,3 +31,46 @@
 #
 # If you do use this code, please leave these notices and/or acknowledge the original code/cite our paper,
 # many thanks and we hope you find it useful!
+
+
+#
+# How to use the code.
+#
+# 1. All the important stuff happens in the Ruler class. It takes an square image block (this should be
+#    a single channel, e.g. grayscale). This block should be chosen to contain part of a ruler in the image. 
+# 2. The angle of the ruler, the spacing of the graduations and the relative offset or phase of the graduations
+#    are estimated. For must purposes, only the spacing is important as this allows for the image to be
+#    calibrated. The spacing is returned in pixels.
+# 3. By default, the smallest ruler spacing is given, but the 'which' parameter to the Ruler.wavelength() method
+#    can be changed to 1, 2, ... to return multiple spacings. Usually these are just multiple of the smallest.
+# 4. The Ruler.orientation() method should be called first, then the Ruler.wavelength() and then Ruler.phase()
+#
+# 5. The helper functions hp_filter() and extract_block() can be used to pre-process the input (HP filter it), and 
+#    extract a suitable block from the input.
+# 
+# For more information on why the code does what it does, see our paper. Note that *not* all the refimements 
+# presented in the published work are implemented in the below. Interesting intermediate results are stored in
+# instance members and can be easily plotted, e.g. self.corr, self.spatial, self.csdf, self.sine_rotated, etc.
+#
+# 6. Interactive version. A simple interactive (OpenCV/mathplotlib.pyplot) driver for the class is provided with
+#    this distribution: 
+#    
+#    Usage: 
+#        $ python ruler-interactive.py <image-filename>
+# 
+#    Once running, you can click on a point in the display window and that should extract an image block and
+#    show the results in the plots window. You can use the fast-keys, [], to increase/decrease the block size 
+#    (these are trapped by the figure_on_press method).
+#    To exit, you need to close the figure window first, then any key will exit the program.  OpenCV windows and matplotlib windows don't play well
+#    together, unfortunately.
+#
+# Possible improvements to the ruler estimation:
+#
+# The ruler offset (phase) is sensitive to the wavelength estimate, so a local search around the approximation 
+# would be beneficial, e.g. a simplex search using a MSE cost (input v. synthesized sine grating model). The ruler 
+# orientation may be found incorrectly as it use the principal axis of the amp spectrum. If the ruler edge 'energy' 
+# dominates the chosen block window, the angle will be 90 degrees out! 
+# It is possible to differentiate the two but this requires looking at the line spectra more closely.
+#
+# 
+# AB 28/09/2021
