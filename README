@@ -1,0 +1,33 @@
+
+#
+# Ruler Estimation
+# Author: Abhir Bhalerao, Department of Computer Science, University of Warwick, Coventry, UK
+# 28th September, 2021
+# abhir.bhalerao@warwick.ac.uk
+#
+# This rep contains code and examples for ruler/scale estimation from images for calibration.
+#
+# The algorithms used are described in our publication:
+#
+# Ruler Detection for Autoscaling Forensic Images, Abhir Bhalerao and Greg Reynolds.
+# International Journal of Digital Crime and Forensics,
+# Volume 6, Issue 1, 2014. Pages 9-27.
+# https://www.researchgate.net/publication/264277138_Ruler_Detection_for_Autoscaling_Forensic_Images
+#
+# For the wavelength/spacing estimation, it uses the YIN pitch detector -- please see de Cheveign´e, A. and Kawahara, H. (2002).
+# YIN, a fundamental frequency estimator for speech and music. Journal of the Acoustical Society of America, 111(4):1917–1930.
+#
+# The code is meant to be illustrative and not definitive.
+#
+# THIS CODE IS PROVIDED “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+# IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+# OR PROFITS; OR BUSINESS INTERRUPTION) SUSTAINED BY YOU OR A THIRD PARTY,
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+# STRICT LIABILITY, OR TORT ARISING IN ANY WAY OUT OF THE USE OF THIS SAMPLE CODE,
+# EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+#
+# If you do use this code, please leave these notices and/or acknowledge the original code/cite our paper,
+# many thanks and we hope you find it useful!
